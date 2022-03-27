@@ -3,8 +3,8 @@
 
 """
 
-Copyright © 2021 - 2023 | Latip176
-Semua codingan dibuat oleh Latip176.
+Copyright © 2021 - 2023 | Syafii-XD
+Semua codingan dibuat oleh Syafii-XD.
 
 """
 
