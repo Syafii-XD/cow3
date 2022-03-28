@@ -34,7 +34,6 @@ os.system("clear")
 import data as dump
 from data import cp_detect as cpp
 from data import convert as cv
-From data  import __init__ as in
 
 ok,cp,loop = 0,0,0
 cot = ""
