@@ -6,7 +6,7 @@ $ pkg install git
 
 
 
-$ git clone https://github.com/Syafii-XD/brute
+$ git clone https://github.com/Syafii-XD/cow3
 
 
 
@@ -40,5 +40,5 @@ $ pip install -r requirements.txt
 
 
 
-$ python brute.py
+$ python app.py
 
