@@ -3,13 +3,14 @@
 
 """
 
-Copyright © 2021 - 2023 | Syafii-XD
+Copyright © 2021 - 2023 | syafii-XD
 Semua codingan dibuat oleh Syafii-XD.
 
 """
 
 import json, os, re, time
 from concurrent.futures import ThreadPoolExecutor as Bool
+
 P = "\x1b[0;97m" 
 M = "\x1b[0;91m"
 H = "\x1b[0;92m"
@@ -56,7 +57,7 @@ _________  ________  __      __________
  \______  /\_______  /\__/\  / /______  /
         \/         \/      \/         \/ 
 	Version: {BM}0.1.5{P}
-  Coded by: syafii-XD, Sponsore: Fatah Sewu
+  Coded by: Latip176, Sponsore: Fatah Sewu
 		"""
 		return banner
 	def cpdetect(self):
