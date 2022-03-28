@@ -3,7 +3,7 @@
 
 """
 
-Copyright © 2021 - 2023 | syafii-XD
+Copyright © 2021 - 2023 | Syafii-XD
 Semua codingan dibuat oleh Syafii-XD.
 
 """
@@ -57,7 +57,7 @@ _________  ________  __      __________
  \______  /\_______  /\__/\  / /______  /
         \/         \/      \/         \/ 
 	Version: {BM}0.1.5{P}
-  Coded by: Latip176, Sponsore: Fatah Sewu
+  Coded by: Syafii-XD, Sponsore: Fatah Sewu
 		"""
 		return banner
 	def cpdetect(self):
