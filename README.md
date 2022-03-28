@@ -30,7 +30,7 @@ $ pip install futures
 
 
 
-$ cd brute
+$ cd cow3
 
 
 
