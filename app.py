@@ -320,7 +320,6 @@ def login():
 		  nama = jsx["name"]
 		  input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 		  open("data/save.txt","a").write(cookie);Data(cookie,nama).menu()
-	  elif "Cookies Invalid" cookie:exit("\n[!] Cookies Invalid")
 		  else:exit("\n[!] Kesalahan")
     elif bingung in ("02","2"):
           __token = input("[?] token\t: ")
