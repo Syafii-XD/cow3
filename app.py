@@ -316,7 +316,7 @@ def login():
 		try:
         token = clotox(cookie)
         coki = {'cookie':cookie}
-        cv.bot_author(coki,token,cookie).__init__(self,cookie,token,cookie_mentah);language(cookie)
+        cv.main(cookie).clotox(cookie)
         get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
         jsx = json.loads(get.text)
         nama = jsx["name"]
