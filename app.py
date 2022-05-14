@@ -314,14 +314,14 @@ def login():
 	if bingung in ("01","1"):
 		cokiee = input("[?] cookie\t: ")
 		try:
-        token = clotox(cookie)
+        token = cv.main(cookie).clotox(cookie)
         coki = {'cookie':cookie}
-        cv.main(cookie).clotox(cookie)
+        cv.main(cookie).__init__(self,cookie,token,cookie_mentah)
         get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
         jsx = json.loads(get.text)
         nama = jsx["name"]
         input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-        open("data/save.txt","a").write(cookie);Data(__coki,_id,_nama).menu()
+        open("data/save.txt","a").write(cookie);Data(cookie,nama).menu()
         elif "Cookies Invalid" cookie:exit("\n[!] Cookies Invalid")
         else:exit("\n[!] Kesalahan")
         elif bingung in ("02","2"):
