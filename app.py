@@ -19,11 +19,16 @@ from urllib.parse import quote
 import json, os, re, time
 from concurrent.futures import ThreadPoolExecutor as Bool
 
-P = "\x1b[0;97m" 
-M = "\x1b[0;91m"
-H = "\x1b[0;92m"
-K = "\x1b[0;93m"
-B = "\x1b[0;94m"
+Z = "\x1b[0;90m"     # Hitam
+M = "\x1b[38;5;196m" # Merah
+H = "\x1b[38;5;46m"  # Hijau
+K = "\x1b[38;5;226m" # Kuning
+B = "\x1b[38;5;44m"  # Biru
+U = "\x1b[0;95m"     # Ungu
+O = "\x1b[0;96m"     # Biru Muda
+P = "\x1b[38;5;231m" # Putih
+J = "\x1b[38;5;208m" # Jingga
+A = "\x1b[38;5;248m" # Abu-Abu
 
 BM = "\x1b[0;96m"
 
