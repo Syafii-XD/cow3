@@ -320,7 +320,7 @@ def login():
 		  nama = jsx["name"]
 		  input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 		  open("data/save.txt","a").write(cookie);Data(cookie,nama).menu()
-	
+		  except:print('\n[•] Error!!');exit()
 	
 if __name__=="__main__":
 	try:
