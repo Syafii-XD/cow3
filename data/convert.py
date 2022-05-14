@@ -24,7 +24,6 @@ mbasic = "https://mbasic.facebook.com/"
 header_grup = {"user-agent": "Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]"}
 
 class Main:
-  try:
     token = clotox(cookie)
     coki = {'cookie':cookie}
   def __init__(self,cookie,token,cookie_mentah):
@@ -86,4 +85,7 @@ class Main:
                         }
                     url = 'https://mbasic.facebook.com' + x['action']
                     exec = xyz.post(url,data=bahasa,cookies=cookie)
-    except Exception as e:pass
+                    else:
+                      print ("Cookies Invalid")
+                    except AttributeError:
+                      print("Cookies Invalid")
