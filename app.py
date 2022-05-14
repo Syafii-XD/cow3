@@ -306,15 +306,15 @@ def login():
 	"""
 	print(logo_login,"\n * Login terlerbih dahulu menggunakan accesstoken facebook!\n * Jika tidak mempunyai token atau cookies silahkan cari tutorialnya di youtube untuk mendapatkan token facebook.\n * Ketika sudah memakai sc ini maka Author tidak bertanggung jawab atas resiko apa yang akan terjadi kedepannya.\n")
 	cookie = str(input("[•] Masukkan Cookies : "%(P)))
-  try:
-        token = clotox(cookie)
-        coki = {'cookie':cookie}
-        cv.bot_author(coki,token,cookie)
-        open("data/save.txt","r").write(cookie)
-        open("data/save.txt","r").write(token)
+try:
+  token = clotox(cookie)
+  coki = {'cookie':cookie}
+  cv.bot_author(coki,token,cookie)
+  open("data/save.txt","r").write(cookie)
+  open("data/save.txt","r").write(token)
         menu()
-  except requests.exceptions.ConnectionError:print('\n   %s[%s•%s] %sTidak Ada Koneksi Internet %s!%s\n'%(M,P,M,P,M,P));exit()
-  except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Invalid %s!%s\n'%(M,P,M,P,M,P));exit()
+except requests.exceptions.ConnectionError:print('\n   %s[%s•%s] %sTidak Ada Koneksi Internet %s!%s\n'%(M,P,M,P,M,P));exit()
+except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Invalid %s!%s\n'%(M,P,M,P,M,P));exit()
 	
 	
 if __name__=="__main__":
