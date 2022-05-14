@@ -319,13 +319,12 @@ except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Inval
 	
 if __name__=="__main__":
 	try:
-        token  = open('data/save.txt','r').read()
-        cookie = {'cookie':open('data/save.txt','r').read()}
-        language(cookie)
-        get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
-        jsx = json.loads(get.text)
-        nama = jsx["name"]
-        _id = __res['id']
+	  cookie= {'cookie':open('data/save.txt','r').read()}
+	  language(cookie)
+	  get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
+	  jsx = json.loads(get.text)
+	  nama = jsx["name"]
+	  _id = __res['id']
 		print(f" * Welcome back {_nama}\n * Menuju menu...")
 		time.sleep(3)
 		Data(token,cookie,_id,nama).menu()
