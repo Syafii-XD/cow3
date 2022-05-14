@@ -277,12 +277,12 @@ def login():
 		print("\n[!] Pilihan tidak ada")
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
-		__cokiee = str(input("[?] cookie\t: ")
+		__cokiee = str(input("[?] cookie\t: "))
 		__coki = cv.Main(__cokiee).__init__(self,cookie)
 			_cek = req.get(f"https://graph.facebook.com/me?access_token=%s"(cookie)))
 			_id = _cek['id']
 			_nama = _cek['name']
-			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			str(input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu"))
 			open("data/save.txt","a").write(__coki)
 			Data(__coki,_id,_nama).menu()
 		elif "Cookies Invalid" in __coki:
