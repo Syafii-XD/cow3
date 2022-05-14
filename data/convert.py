@@ -80,13 +80,6 @@ except ValueError:
 _bulan_ = bulan_cek[bulan_skrng]
 tanggal = ("%s-%s-%s"%(hari,_bulan_,tahun))
 
-###----------[ JANGAN DIHAPUS NANTI ERROR ]---------- ###
-SAKERA = Codename + len(Author) - len(Facebook) + len(Instagram) - len(Whatsapp) + len(YouTube)
-sakara = len(Author)    +  Codename
-sakira = len(Facebook)  +  Codename
-sakura = len(Instagram) +  Codename
-sakera = len(Whatsapp)  +  Codename
-sakora = len(YouTube)   +  Codename
 
 ###----------[ GLOBAL URL & HEADERS ]---------- ###
 url_businness = "https://business.facebook.com"
