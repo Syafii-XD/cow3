@@ -319,7 +319,7 @@ def login():
 	"""
 	print(logo_login,"\n * Login terlerbih dahulu menggunakan accesstoken facebook!\n * Jika tidak mempunyai token atau cookies silahkan cari tutorialnya di youtube untuk mendapatkan token facebook.\n * Ketika sudah memakai sc ini maka Author tidak bertanggung jawab atas resiko apa yang akan terjadi kedepannya.\n")
 	cookie = str(input("[•] Masukkan Cookies : "%(P)))
-  coki = cv.Main({'cookie':cookie})
+  coki = cv.Main({'cookie':cookie}).gettoken()
   open("data/save.txt","r").write(cookie)
   open("data/save.txt","r").write(token)
   menu()
