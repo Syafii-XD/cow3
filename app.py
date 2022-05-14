@@ -319,12 +319,18 @@ def login():
 	"""
 	print(logo_login,"\n * Login terlerbih dahulu menggunakan accesstoken facebook!\n * Jika tidak mempunyai token atau cookies silahkan cari tutorialnya di youtube untuk mendapatkan token facebook.\n * Ketika sudah memakai sc ini maka Author tidak bertanggung jawab atas resiko apa yang akan terjadi kedepannya.\n")
 	cookie = str(input("[•] Masukkan Cookies : "%(P)))
-  coki = cv.Main({'cookie':cookie}).gettoken()
-  open("data/save.txt","r").write(cookie)
-  open("data/save.txt","r").write(token)
-  menu()
-except requests.exceptions.ConnectionError:print('\n   %s[%s•%s] %sTidak Ada Koneksi Internet %s!%s\n'%(M,P,M,P,M,P));exit()
-except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Invalid %s!%s\n'%(M,P,M,P,M,P));exit()
+	coki = cv.Main({'cookie':cookie})
+	if "EAA" in coki:
+	  _cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={coki}").text)
+	  _id = _cek['id']
+		_nama = _cek['name']
+		input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+		open("data/save.txt","a").write(coki)
+		Data(__coki,_id,_nama).menu()
+		elif "Cookies Invalid" in __coki:
+			exit("\n[!] Cookies Invalid")
+		else:
+			exit("\n[!] Kesalahan")
 	
 	
 if __name__=="__main__":
