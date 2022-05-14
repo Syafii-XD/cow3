@@ -308,8 +308,7 @@ def login():
 	cookie = str(input("[•] Masukkan Cookies : "%(P)))
 try:
   token = clotox(cookie)
-  coki = {'cookie':cookie}
-  cv.bot_author(coki,token,cookie)
+  coki = cv.Main{'cookie':cookie}
   open("data/save.txt","r").write(cookie)
   open("data/save.txt","r").write(token)
   menu()
@@ -325,7 +324,7 @@ if __name__=="__main__":
 	  jsx = json.loads(get.text)
 	  nama = jsx["name"]
 	  _id = __res['id']
-		print(f" * Welcome back {_nama}\n * Menuju menu...")
+	  print(f" * Welcome back {_nama}\n * Menuju menu...")
 		time.sleep(3)
 		Data(token,cookie,_id,nama).menu()
 	except KeyError:
