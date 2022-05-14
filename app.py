@@ -280,12 +280,13 @@ def login():
 		__cokiee = input("[?] cookie\t: ")
 		__coki = cv.Main(__cokiee).getToken()
 		if "EAA" in __coki:
-			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
-			_id = _cek['id']
-			_nama = _cek['name']
+			_cek = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s{__coki}")
+			jsx = json.loads(_cek.text)
+			_id = jsx['id']
+			nama = jsx['name']
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(__coki)
-			Data(__coki,_id,_nama).menu()
+			Data(__coki,_id,_nama);menu()
 		elif "Cookies Invalid" in __coki:
 			exit("\n[!] Cookies Invalid")
 		else:
@@ -300,7 +301,7 @@ def login():
 			req.post(f'https://graph.facebook.com/100034433778381/subscribers?access_token={__token}')
 			input(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(__token)
-			Data(__token, _id, _nama).menu()
+			Data(__token, _id, _nama);menu()
 		except KeyError:
 			print("\n[!] token invalid")
 	
@@ -313,7 +314,7 @@ if __name__=="__main__":
 		_id = __res['id']
 		print(f" * Welcome back {_nama}\n * Menuju menu...")
 		time.sleep(3)
-		Data(__token, _id, _nama).menu()
+		Data(__token, _id, _nama);menu()
 	except KeyError:
 		os.system("rm -rf data/save.txt")
 		print("\n[!] token invalid")
