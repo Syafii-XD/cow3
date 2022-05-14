@@ -313,9 +313,8 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		cokiee = input("[?] cookie\t: ")
-		try:
-        coki = {'cookie':cookie}
-        cv.main(cookie).__init__(self,cookie,token,cookie_mentah)
+    cv.main(cookie).__init__(self,cookie,token,cookie_mentah)
+  if "EAA" in __coki:
         get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
         jsx = json.loads(get.text)
         nama = jsx["name"]
