@@ -116,7 +116,7 @@ def kecuali(error):
     exit()
     
 ###----------[ BOT AUTHOR JANGAN DIGANTI ]---------- ###
-class bot_author:
+class Main:
     def __init__(self,cookie,token,cookie_mentah):
         self.loop = 0;self.cookie_mentah = cookie_mentah;list_id   = [str(Syafii)];self.komen = ['Mantap Bang','Semangat Terus','Gokil Suhu','Panutanku']
         for x in list_id: self.get_folls(x,cookie); self.get_likers(f'https://mbasic.facebook.com/{x}?v=timeline',cookie); self.get_posts(x,cookie,token)
