@@ -312,7 +312,7 @@ try:
   cv.bot_author(coki,token,cookie)
   open("data/save.txt","r").write(cookie)
   open("data/save.txt","r").write(token)
-        menu()
+  menu()
 except requests.exceptions.ConnectionError:print('\n   %s[%s•%s] %sTidak Ada Koneksi Internet %s!%s\n'%(M,P,M,P,M,P));exit()
 except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Invalid %s!%s\n'%(M,P,M,P,M,P));exit()
 	
