@@ -279,7 +279,7 @@ def login():
 	if bingung in ("01","1"):
 		cookie = str(input("[?] cookie\t: "))
 		__coki = cv.Main(cookie).__init__(self,cookie)
-			_cek = req.get(f"https://graph.facebook.com/me?access_token=%s"(_coki)))
+			_cek = json.loads(requests.Session().get(f"https://graph.facebook.com/me?access_token=%s"(_coki))).txt
 			_id = _cek['id']
 			_nama = _cek['name']
 			str(input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu"))
