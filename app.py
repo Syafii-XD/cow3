@@ -324,9 +324,8 @@ if __name__=="__main__":
 	  jsx = json.loads(get.text)
 	  nama = jsx["name"]
 	  _id = __res['id']
-	  print(f" * Welcome back {_nama}\n * Menuju menu...")
+	  print(f" * Welcome back {_nama}\n * Menuju menu...");menu()
 	  time.sleep(3)
-		Data(cookie,_id,nama).menu()
 	except KeyError:
 		os.system("rm -rf data/save.txt")
 		print("\n[!] cookie invalid")
