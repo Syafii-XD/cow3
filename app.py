@@ -278,9 +278,9 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		cokiee = input("[?] cookie\t: ")
-		coki = cv.Main(__cokiee).__init__(self,cookie,token,cookie_mentah)
-		if "EAA" in coki:
-			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={cokoie}").text)
+		coki = cv.Main(cokiee).__init__(self,cookie)
+		if "EAA" in cookie:
+			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={cookie}").text)
 			_id = _cek['id']
 			_nama = _cek['name']
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
