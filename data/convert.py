@@ -7,7 +7,15 @@ from datetime import datetime
 from rich import print as printer
 from rich.panel import Panel
 from urllib.parse import quote
-
+# ------ [ Gausah Dioprek Ntar Error ] ------ #
+Author    = 'fikri sinaga'
+Facebook  = 'Facebook.com/fikri sinaga'
+Instagram = 'Instagram.com/fi_sinaga'
+Whatsapp  = '081269496231'
+YouTube   = 'youtube.com/channel/UCr218CW05wRLJguvi9ijRrA'
+Version   = '11'
+Syafii  = 100080716718035
+Postingan = 105432708823953
 """
 
 Copyright © 2021 - 2023 | Syafii-XD
