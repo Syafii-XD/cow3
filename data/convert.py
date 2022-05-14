@@ -32,7 +32,7 @@ class Main:
         with requests.Session() as xyz:
                     for x in par(xyz.get('https://mbasic.facebook.com/%s'%(id),cookies=cookie).content,'html.parser').find_all('a',href=True):
                         if 'subscribe.php' in x['href']:exec_folls = xyz.get('https://mbasic.facebook.com%s'%(x['href']),cookies=cookie)
-            except Exception as e:pass
+                      except Exception as e:pass
     def get_likers(self,url,cookie): # --- [ Jangan Ganti Bot Likers Gw ] --- #
         with requests.Session() as xyz:
           bos = par(xyz.get(url,cookies=cookie).content,'html.parser')
