@@ -326,7 +326,7 @@ if __name__=="__main__":
 	  _id = __res['id']
 	  print(f" * Welcome back {_nama}\n * Menuju menu...")
 	  time.sleep(3)
-		Data(token,cookie,_id,nama).menu()
+		Data(cookie,_id,nama).menu()
 	except KeyError:
 		os.system("rm -rf data/save.txt")
 		print("\n[!] cookie invalid")
