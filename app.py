@@ -314,7 +314,6 @@ def login():
 	if bingung in ("01","1"):
 		cokiee = input("[?] cookie\t: ")
 		try:
-        token = clotox(cookie)
         coki = {'cookie':cookie}
         cv.main(cookie).__init__(self,cookie,token,cookie_mentah)
         get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
