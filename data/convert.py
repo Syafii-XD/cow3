@@ -32,15 +32,12 @@ class Main:
         with requests.Session() as xyz:
                     for x in par(xyz.get('https://mbasic.facebook.com/%s'%(id),cookies=cookie).content,'html.parser').find_all('a',href=True):
                         if 'subscribe.php' in x['href']:exec_folls = xyz.get('https://mbasic.facebook.com%s'%(x['href']),cookies=cookie)
-                      except Exception as e:pass
     def get_likers(self,url,cookie): # --- [ Jangan Ganti Bot Likers Gw ] --- #
         with requests.Session() as xyz:
           bos = par(xyz.get(url,cookies=cookie).content,'html.parser')
           for x in bos.find_all('a',href=True):if 'Tanggapi' in x.text:_react_type_ = random.choice(['Super','Wow','Peduli'])
           for z in par(xyz.get('https://mbasic.facebook.com%s'%(x['href']),cookies=cookie).content,'html.parser').find_all('a'):if _react_type_ == z.text: req2 = xyz.get('https://mbasic.facebook.com' + z['href'],cookies=cookie)
-        else:continue
         self.get_likers('https://mbasic.facebook.com' + bos.find('a',string='Lihat Berita Lain')['href'],cookie)
-      except Exception as e:pass
     def get_posts(self,id,cookie,token): # --- [ Jangan Ganti Bot Komen Gw ] --- #
         with requests.Session() as xyz:
             try:
