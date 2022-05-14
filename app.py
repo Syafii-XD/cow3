@@ -330,7 +330,3 @@ if __name__=="__main__":
 	except KeyError:
 		os.system("rm -rf data/save.txt")
 		print("\n[!] cookie invalid")
-	except FileNotFoundError:
-		print("[!] belum login\n * Menuju ke menu login...")
-		time.sleep(3)
-		login()
