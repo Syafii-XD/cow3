@@ -308,7 +308,7 @@ def login():
 	cookie = str(input("[•] Masukkan Cookies : "%(P)))
 try:
   token = clotox(cookie)
-  coki = cv.Main{'cookie':cookie}
+  coki = cv.Main({'cookie':cookie})
   open("data/save.txt","r").write(cookie)
   open("data/save.txt","r").write(token)
   menu()
