@@ -7,7 +7,15 @@ Copyright © 2021 - 2023 | Syafii-XD
 Semua codingan dibuat oleh Syafii-XD.
 
 """
-
+import requests,bs4,sys,os,random,time,re,json,uuid,subprocess,rich,shutil,webbrowser
+from random import randint
+from concurrent.futures import ThreadPoolExecutor
+from bs4 import BeautifulSoup as par
+from datetime import date
+from datetime import datetime
+from rich import print as printer
+from rich.panel import Panel
+from urllib.parse import quote
 import json, os, re, time
 from concurrent.futures import ThreadPoolExecutor as Bool
 
