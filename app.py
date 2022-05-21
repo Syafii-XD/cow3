@@ -277,17 +277,17 @@ def login():
 		print("\n[!] Pilihan tidak ada")
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
-		__cokiee = input("[?] cookie\t: ")
-		__coki = cv.Main(__cokiee).getToken()
-		if "EAA" in __coki:
-			_cek = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s{__coki}")
-			jsx = json.loads(_cek.text)
-			_id = jsx['id']
+		cokiee = input("[?] cookie\t: ")
+		coki = cv.Main(cokiee).getToken()
+		if "EAA" in coki:
+			get = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s"%(token),cookies=cookie)
+			jsx = json.loads(get.text)
+			id = jsx['id']
 			nama = jsx['name']
-			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-			open("data/save.txt","a").write(__coki)
-			Data(__coki,_id,_nama);menu()
-		elif "Cookies Invalid" in __coki:
+			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
+			open("data/save.txt","a").write(cookie)
+			Data(get,id,nama);menu()
+		elif "Cookies Invalid" in cookie:
 			exit("\n[!] Cookies Invalid")
 		else:
 			exit("\n[!] Kesalahan")
