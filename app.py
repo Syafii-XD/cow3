@@ -278,7 +278,7 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		cokiee = input("[?] cookie\t: ")
-		coki = cv.Main(cokiee).getToken(cookie)
+		coki = cv.Main(cookie).getToken()
 		if "EAA" in coki:
 			get = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s"%(token),cookies=cookie)
 			jsx = json.loads(get.text)
@@ -287,7 +287,7 @@ def login():
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(cookie)
 			Data(get,id,nama);menu()
-		elif "Cookie" in slef.cookie:
+		elif "Cookies" in slef.cookie:
 			print("\n[!] login Berhasil")
 		else:
 			exit("\n[!] Kesalahan")
