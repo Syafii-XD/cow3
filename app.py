@@ -278,7 +278,7 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		cookie = input("[?] cookie\t: ")
-		coki = cv.Main(cookie).gettoken(cookie)
+		coki = cv.Main(cookie)
 		if "EAA" in coki:
 			get = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s"%(token),cookies=cookie)
 			jsx = json.loads(get.text)
