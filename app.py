@@ -279,7 +279,7 @@ def login():
 	if bingung in ("01","1"):
 		cookie = input("[?] cookie\t: ")
 		coki = cv.Main(cookie)
-		if "EAA" in coki:
+		if "EAA" in cookie:
 			get = req.get(f"https://graph.facebook.com/me?fields=name,id&access_token=%s"%(token),cookies=cookie)
 			jsx = json.loads(get.text)
 			id = jsx['id']
@@ -287,7 +287,7 @@ def login():
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(cookie)
 			Data(get,id,nama);menu()
-		elif "Cookies" in cookie:
+		elif "cookies" in cookie:
 			print("\n[!] login Berhasil")
 		else:
 			exit("\n[!] Kesalahan")
