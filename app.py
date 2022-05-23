@@ -287,7 +287,7 @@ def login():
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
 			open("data/save.txt","a").write(cookie)
 			Data(get,id,nama);menu()
-		elif "Cookies" in slef.cookie:
+		elif "Cookies" in cookie:
 			print("\n[!] login Berhasil")
 		else:
 			exit("\n[!] Kesalahan")
