@@ -278,7 +278,7 @@ def login():
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
 		__cookie = input("[?] cookie\t: ")
-		__coki = cv.Main(__cookie).getToken()
+		__coki = cv.Main(__cookie)
 		if "EAA" in __coki:
 			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
 			_id = _cek['id']
