@@ -19,7 +19,7 @@ class Main:
 			if "EAA" in __cookie:
 				return __cookie
 			else:
-				return __token
+				return __cookie
 		except AttributeError:
 		  return __cookie
 			
