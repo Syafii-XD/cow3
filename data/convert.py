@@ -19,6 +19,6 @@ class Main:
 			if "EAA" in __token:
 				return __token
 			else:
-				return "Cookies Invalid"
+				return __token
 		except AttributeError:
 			return "Cookies Invalid"
