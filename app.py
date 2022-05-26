@@ -4,8 +4,8 @@
 
 """
 
-Copyright © 2021 - 2023 | syafii
-Semua codingan dibuat oleh Mhd syafii.
+Copyright © 2021 - 2023 | Latip176
+Semua codingan dibuat oleh Latip176.
 
 """
 import json, os, re, time
@@ -277,16 +277,16 @@ def login():
 		print("\n[!] Pilihan tidak ada")
 		bingung = input("[?] Login menggunakan: ")
 	if bingung in ("01","1"):
-		__cookie = input("[?] cookie\t: ")
-		__coki = cv.Main(__cookie)
-		if "EAA" in __cookie:
-			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__cookie}").text)
+		__cokiee = input("[?] cookie\t: ")
+		__coki = cv.Main(__cokiee).getToken()
+		if "EAA" in __coki:
+			_cek = json.loads(req.get(f"https://graph.facebook.com/me?access_token={__coki}").text)
 			_id = _cek['id']
 			_nama = _cek['name']
 			input(f"\n[✓] Berhasil login menggunakan cookies\n * Welcome {_nama} jangan berlebihan ya!\n * Enter untuk melanjutkan ke menu")
-			open("data/save.txt","a").write(__cookie)
-			Data(__cookie,_id,_nama).menu()
-		elif "Cookies Invalid" in __cookie:
+			open("data/save.txt","a").write(__coki)
+			Data(__coki,_id,_nama).menu()
+		elif "Cookies Invalid" in __coki:
 			exit("\n[!] Cookies Invalid")
 		else:
 			exit("\n[!] Kesalahan")
