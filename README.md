@@ -11,8 +11,7 @@ $ git clone https://github.com/Syafii-XD/cow3
 $ cd cow3
 $ ls
 $ git pull
-$ pip install -r multi.tools
-$ python multi.py
+$ python fikri.py
 ```
 #### Menu & Features Crack
 
