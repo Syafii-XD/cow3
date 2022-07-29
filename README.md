@@ -1,4 +1,4 @@
-# WELCOME TO GITHUB KALZE
+# WELCOME TO GITHUB Syafii-XD
 
 * WhatsApp:081269496231
 * Facebook:Fikri Syahputra Sinaga
@@ -11,6 +11,8 @@
 
 # TUTORIAL INSTALL BAHAN
 • Cara pasang
+
+pkg update && pkg upgrade
 
 pkg install python
 
