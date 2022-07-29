@@ -18,11 +18,11 @@ pkg install python
 
 pkg install git 
 
+pkg install play-audio
+
 pip install requests
 
 pip install bs4
-
-pip install requests
 
 pip install futures
 
