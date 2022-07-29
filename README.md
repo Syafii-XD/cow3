@@ -1,27 +1,38 @@
-$ apt update && apt upgrade
+# WELCOME TO GITHUB KALZE
 
-$ termux-setup-storage
-• Enter
-• Ketik y Atau Pilih Izinkan
+* WhatsApp:081269496231
+* Facebook:Fikri Syahputra Sinaga
+* Blogspot: Blogspot
+* Github: Syafii-XD
 
-$ pkg install python
 
-$ pkg install git
 
-$ pip install requests
 
-$ pip install rich
 
-$ pip install bs4
+# TUTORIAL INSTALL BAHAN
+• Cara pasang
 
-$ git clone https://github.com/Syafii-XD/cow3
+pkg install python
 
-$ cd cow3
+pkg install git 
 
-$ git pull
+pip install requests
 
-$ python fikri.py
+pip install bs4
 
-$ PERINGATAN!!!
+pip install requests
 
-$ JANGAN DI UBAH2 DAN JANGAN DIJUAL BELIKAN SCRIP DARI SAYA, KALAU TERJADI APA" SAYA TIDAK BERTANGGUNG JAWAB ATAS SC INI... $ TERIMA KASIH
+pip install futures
+
+pip install rich
+
+pip install mechanize
+
+git clone https://github.com/Syafii-XD/cow3     
+
+cd cow3
+
+git pull
+
+python fikri.py
+
